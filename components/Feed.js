@@ -26,7 +26,7 @@ const Feed = () => {
   };
   return (
     <section className="feed">
-      <form action="" className="relative w-full flex-center">
+      <form action="" className="relative v w-full flex-center">
         <input
           type="text"
           placeholder="Search for a tag or a username"
