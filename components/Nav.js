@@ -5,6 +5,7 @@ import { signIn, signOut, useSession, getProviders } from 'next-auth/react';
 import Image from 'next/image';
 const Nav = () => {
   const { data: session } = useSession();
+
   const [providers, setProviders] = useState(null);
   useEffect(() => {
     const setProvider = async () => {
@@ -17,7 +18,12 @@ const Nav = () => {
   return (
     <nav className="flex-between w-full mb-16 pt-3">
       <Link href="/" className="flex gap-2 flex-center">
-        <Image src="/assets/images/logo.svg" width={30} height={30} />
+        <Image
+          src="/assets/images/logo.svg"
+          width={30}
+          height={30}
+          alt="profile"
+        />
         <p className="logo_text">Prompter</p>
       </Link>
       <div className="sm:flex hidden">
@@ -26,7 +32,7 @@ const Nav = () => {
             <Link href="/create-prompt" className="black_btn">
               Create Post
             </Link>
-            <button type="button" onCLick={signOut} className="outline_btn">
+            <button type="button" onClick={signOut} className="outline_btn">
               Sign Out
             </button>
             <Link href="/profile">
@@ -35,7 +41,7 @@ const Nav = () => {
                 width={37}
                 height={37}
                 className="rounded-full "
-                atl="profile"
+                alt="profile"
               />
             </Link>
           </div>
@@ -64,7 +70,7 @@ const Nav = () => {
               width={37}
               height={37}
               className="rounded-full "
-              atl="profile"
+              alt="profile"
               onClick={() => setToggleDropdown((prev) => !prev)}
             />
             {toggleDropdown && (
